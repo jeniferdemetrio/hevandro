@@ -1,0 +1,82 @@
+<html lang="pt-br">
+<head>
+    <title>Calculadora de Gorjeta</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.0/css/bulma.min.css" integrity="sha512-ADrqa2PY1TZtb/MoLZIZu/Z/LlPaWQeDMBV73EMwjGam43/JJ5fqW38Rq8LJOVGCDfrJeOMS3Q/wRUVzW5DkjQ==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <main class="hero is-fullheight">
+        <section class="hero-body">
+            <div class="container">
+                <div class="columns is-centered">
+                    <div class="column is-half-desktop">
+                        <form id="tipCalc" class="box">
+                            <h1 class="title has-text-black has-text-centered has-text-white">Calculadora de Gorjeta</h1>
+                            <div class="field">
+                                <label class="label">Qual o valor total da conta ?</label>
+                                <div class="control has-icons-left">
+                                    <input type="text" id="inputValorTotal" class="input" placeholder="Valor Total"autofocus required onblur="changeCommaToDot(this.id);">
+                                    <span class="icon is-small is-left">
+                                        <i class="fas fa-dollar-sign"></i>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="field">
+                                <label class="label">Qual a nota do serviço prestado ?</label>
+                                <p class="control has-icons-left">
+                                    <span class="select">
+                                    <select id="serviceNote">
+                                        <option selected value="0">Qual sua avaliação?</option>
+                                        <option value="0.3">Excepcional &#45; 30&#37; </option>
+                                        <option value="0.2">Muito bom &#45; 20&#37;</option>
+                                        <option value="0.15">Bom &#45; 15&#37;</option>
+                                        <option value="0.10">Ruim &#45; 10&#37;</option>
+                                        <option value="0.05">Terrível &#45; 5&#37;</option>
+                                    </select>
+                                    </span>
+                                    <span class="icon is-small is-left">
+                                        <i class="fas fa-star"></i>
+                                    </span>
+                                </p>
+                            </div>
+                            <div class="field">
+                                <label class="label">Quantas pessoas vão compartilhar a conta?</label>
+                                <div class="control has-icons-left">
+                                    <input type="text" id="inputPessoas" class="input" placeholder="Número de Pessoas" required onblur="changeCommaToDot(this.id);">
+                                    <span class="icon is-small is-left">
+                                        <i class="fas fa-user-friends"></i>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="field">
+                                <div class="container has-text-right">
+                                    <button type="button" onclick="calculatarTip()"id="Calcular"class="button is-success has-text-weight-bold">
+                                        <span class="icon">
+                                            <i class="fas fa-calculator"></i>
+                                        </span>
+                                        <span>Calcular</span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div id="totalTip">
+                                <sup>R$ <span id="tip">0.00</span></sup>
+                                <br>
+                                <sup id="totalapagar">Total a pagar:</sup>
+                                <br>
+                                <sup>R$ <span id="totalConta">0.00</span></sup>
+                                <small id="each"></small>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="Script.js"></script>
+</body>
+</html>
